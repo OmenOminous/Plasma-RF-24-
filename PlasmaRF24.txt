@@ -1,7 +1,7 @@
 return function(arg1)
 	_G.distance = arg1
     local HttpService = game:GetService("HttpService")
-    local gistUrl = "https://gist.githubusercontent.com/SigmaSploiter1/1d4cc159218ad8ffd4c8b561049c04c4/raw/0e88b51c66d2ab96f855c9b4f55af872ac809a3f/gistfile1.txt"
+    local gistUrl = "https://gist.githubusercontent.com/SigmaSploiter1/1d4cc159218ad8ffd4c8b561049c04c4/raw/d3b62930b608b5776db0f2d92275e2d9772db3e2/gistfile1.txt"
     
     function isWhitelisted(hwid)
         local response = game:HttpGet(gistUrl)
