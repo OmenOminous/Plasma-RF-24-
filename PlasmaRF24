@@ -1,7 +1,7 @@
 return function(arg1)
 	_G.distance = arg1
     local HttpService = game:GetService("HttpService")
-    local gistUrl = "https://pastebin.com/wEcU8nhw"
+    local gistUrl = "https://gist.github.com/1d4cc159218ad8ffd4c8b561049c04c4.git"
     
     function isWhitelisted(hwid)
         local response = game:HttpGet(gistUrl)
