@@ -1,0 +1,57 @@
+local HttpService = game:GetService("HttpService")
+local StarterGui = game:GetService("StarterGui")
+local gistUrl = "https://gist.githubusercontent.com/SigmaSploiter1/aa2ac0c178835a93d0f8ba6f6cb563e6/raw/fe97464b1c861dbf988bb2f308a228ee4efc8a1a/gistfile1.txt"
+
+-- Function to check if the player's HWID is whitelisted
+local function isWhitelisted(hwid)
+    local success, response = pcall(function()
+        return game:HttpGet(gistUrl)
+    end)
+
+    if not success then
+        StarterGui:SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Failed to load whitelist.",
+            Duration = 5
+        })
+        return false
+    end
+
+    local data = HttpService:JSONDecode(response)
+    for _, v in pairs(data.whitelisted_hwids) do
+        if v == hwid then
+            return true
+        end
+    end
+
+    return false
+end
+
+-- Get the player's HWID
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+
+-- Notify the player that the script is checking the whitelist
+StarterGui:SetCore("SendNotification", {
+    Title = "Checking Whitelist",
+    Text = "Please wait...",
+    Duration = 2
+})
+
+-- Check if the player's HWID is whitelisted
+if isWhitelisted(hwid) then
+    StarterGui:SetCore("SendNotification", {
+        Title = "Whitelisted",
+        Text = "Enjoy!",
+        Duration = 5
+    })
+
+    -- If whitelisted, execute the specified script
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SigmaSploiter1/PlasmaRF24/main/Plasma.txt'))()
+else
+    -- If not whitelisted, notify the player
+    StarterGui:SetCore("SendNotification", {
+        Title = "WHAT ARE YOU DOING?",
+        Text = "UR NOT WHITELISTED!!",
+        Duration = 5
+    })
+end
