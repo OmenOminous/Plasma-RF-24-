@@ -1,6 +1,6 @@
 local HttpService = game:GetService("HttpService")
 local StarterGui = game:GetService("StarterGui")
-local gistUrl = "https://gist.githubusercontent.com/SigmaSploiter1/aa2ac0c178835a93d0f8ba6f6cb563e6/raw/fe97464b1c861dbf988bb2f308a228ee4efc8a1a/gistfile1.txt"
+local gistUrl = "https://gist.githubusercontent.com/SigmaSploiter1/aa2ac0c178835a93d0f8ba6f6cb563e6/raw/c7dffb07c59d2d47b3b01f0db5962618d162d874/gistfile1.txt"
 
 -- Function to check if the player's HWID is whitelisted
 local function isWhitelisted(hwid)
